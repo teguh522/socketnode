@@ -1,0 +1,22 @@
+{
+  "name": "x_sockets",
+  "version": "1.0.0",
+  "description": "Project socket real time",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teguh522/socketnode.git"
+  },
+  "author": "Teguh Firmansyah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teguh522/socketnode/issues"
+  },
+  "homepage": "https://github.com/teguh522/socketnode#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
