@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="send_message" style="background: gold;padding: 10px">
+        Send message
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+
+    //?user=francis&room=1
+    var urlParams= new URLSearchParams(window.location.search);
+    var user =urlParams.get('user');
+    var room =urlParams.get('room');
+
+    console.log(user);
+    console.log(room);
+    
+    
+    var socket =io();
+
+    socket.on('connect',function(){
+        console.log('connected to server');
+
+        socket.emit('join',{
+            user:user,
+            room:room
+        })
+
+        socket.on('userJoined',function(message){
+            console.log(message);
+            
+        })
+    })
+
+
+
+    // socket.on('newMessage',function(message){
+    //     console.log(message);
+        
+    // })
+
+    // $('.send_message').on('click',function(){
+    //         socket.emit('sendMess',{
+    //         from:"James",
+    //         message:"Hello, its me"
+    //     },function(argument){
+    //         console.log(argument);
+    //     })
+    // })
+    
+
+    socket.on('disconnect',function(){
+        console.log('Disconnected..');
+        
+    })
+</script>
+</html>
